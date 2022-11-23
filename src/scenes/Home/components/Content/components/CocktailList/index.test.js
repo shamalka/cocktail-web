@@ -112,7 +112,7 @@ describe("CocktailList component", function () {
                 "dateModified": "2016-02-03 15:26:58"
             }
         ]
-        render(<CocktailList cocktailData={testCocktailArray} isLoading={false}/>)
+        render(<CocktailList cocktailData={testCocktailArray} isLoading={false} />)
         expect(screen).toMatchSnapshot();
     })
 });

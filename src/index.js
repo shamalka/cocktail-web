@@ -18,7 +18,7 @@ const store = configureStore({
 const queryClient = new QueryClient();
 
 const container = document.getElementById('app');
-const root = createRoot(container); 
+const root = createRoot(container);
 root.render(
     <QueryClientProvider client={queryClient}>
         <Provider store={store}>

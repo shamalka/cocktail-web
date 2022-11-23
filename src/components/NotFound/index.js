@@ -6,7 +6,7 @@ const NotFound = () => {
         <div className="flex items-center justify-center h-1/2">
             <div>
                 <div className="flex items-center justify-center mb-5" >
-                <img src={emptyBox} className="w-24 h-24" />
+                    <img src={emptyBox} className="w-24 h-24" />
                 </div>
                 <p className="font-poppins text-lg">Sorry.. Cocktail not found</p>
             </div>

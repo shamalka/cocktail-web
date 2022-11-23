@@ -10,10 +10,10 @@ describe("NavigationBar component", function () {
     })
 });
 
-describe("NavigationBar component", function() {
+describe("NavigationBar component", function () {
     it('Test title text', () => {
-      render(<NavigationBar />);
-      const element = screen.getByText("Cocktail Hub")
-      expect(element).toBeInTheDocument();
+        render(<NavigationBar />);
+        const element = screen.getByText("Cocktail Hub")
+        expect(element).toBeInTheDocument();
     });
 });

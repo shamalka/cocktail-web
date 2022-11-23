@@ -1,7 +1,7 @@
 import { ReloadOutlined, HeartFilled } from "@ant-design/icons";
 import { Tooltip, Drawer } from "antd";
 import axios from "axios";
-import React, {useEffect, useState} from "react";
+import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import Button from "../../../../components/Button";
 import { setCocktailData } from "../../../../features/cocktailData";
@@ -25,13 +25,13 @@ const Content = () => {
     )
 
     useEffect(() => {
-        console.log('search',searchText)
-        if(searchText === '') {
+        console.log('search', searchText)
+        if (searchText === '') {
             fetchRandomCocktails()
-        }else{
+        } else {
             fetchCocktailData()
         }
-    },[searchText])
+    }, [searchText])
 
     const fetchCocktailData = () => {
         setIsLoading(true)
@@ -50,9 +50,9 @@ const Content = () => {
         setIsLoading(true)
         axios.get("https://thecocktaildb.com/api/json/v1/1/random.php").then(response => {
             cocktailDataTmpArray.push(response.data.drinks[0])
-            if(cocktailDataTmpArray.length < 5) {
+            if (cocktailDataTmpArray.length < 5) {
                 fetchRandomCocktails()
-            }else{
+            } else {
                 setIsLoading(false)
                 dispatch(setCocktailData(cocktailDataTmpArray))
             }
@@ -83,19 +83,19 @@ const Content = () => {
                     <p className="font-poppins font-bold lg:text-2xl md:text-xl text-sm">5 Random cocktails for you.. Stay tipsy</p>
                 </div>
                 <div className="flex-1 items-center">
-                <Tooltip placement="top" title={"Refresh"}>
-                    <Button onClick={onClickRefreshButton} className="shadow bg-gray-200 h-8 w-8 mr-3 mt-2 rounded-full hover:opacity-50 float-right" icon={<ReloadOutlined className="text-md"/>}/>
-                </Tooltip>
-                <Tooltip placement="top" title={"Favorites"}>
-                    <Button onClick={showDrawer} className="shadow bg-gray-200 h-8 w-8 mr-3 mt-2 rounded-full hover:opacity-50 float-right" icon={<HeartFilled className="text-md text-red-400"/>}/>
-                </Tooltip>
-                <Drawer title="Favorite Cocktails" placement="right" onClose={onClose} visible={openDrawer}> 
-                    <FavoriteCocktailsList/>
-                </Drawer>
+                    <Tooltip placement="top" title={"Refresh"}>
+                        <Button onClick={onClickRefreshButton} className="shadow bg-gray-200 h-8 w-8 mr-3 mt-2 rounded-full hover:opacity-50 float-right" icon={<ReloadOutlined className="text-md" />} />
+                    </Tooltip>
+                    <Tooltip placement="top" title={"Favorites"}>
+                        <Button onClick={showDrawer} className="shadow bg-gray-200 h-8 w-8 mr-3 mt-2 rounded-full hover:opacity-50 float-right" icon={<HeartFilled className="text-md text-red-400" />} />
+                    </Tooltip>
+                    <Drawer title="Favorite Cocktails" placement="right" onClose={onClose} visible={openDrawer}>
+                        <FavoriteCocktailsList />
+                    </Drawer>
                 </div>
             </div>
-            
-            {cocktailData !== null ? <CocktailList cocktailData={cocktailData} isLoading={isLoading}/> : <NotFound/>}
+
+            {cocktailData !== null ? <CocktailList cocktailData={cocktailData} isLoading={isLoading} /> : <NotFound />}
         </div>
     );
 };

@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from "react";
+import React, { useEffect, useState } from "react";
 import cocktailIcon from "./../../img/cocktail.png"
 import SearchBar from "./components/SearchBar";
 import { Space } from "antd";
@@ -15,7 +15,7 @@ const NavigationBar = () => {
                     </Space>
                 </div>
                 <div className="flex-1">
-                    <SearchBar/>
+                    <SearchBar />
                 </div>
             </div>
         </div>

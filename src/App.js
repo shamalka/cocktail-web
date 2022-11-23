@@ -9,10 +9,10 @@ import { setFavoriteCocktailData } from "./features/cocktailData";
 const App = () => {
 
     const dispatch = useDispatch();
-    
+
     useEffect(() => {
         addToFaviorite()
-    },[])
+    }, [])
 
     const addToFaviorite = () => {
         const favoritesArray = localStorage.getItem('faviorite_cocktails') !== null ? JSON.parse(localStorage.getItem('faviorite_cocktails')) : []
@@ -22,7 +22,7 @@ const App = () => {
     return (
         <BrowserRouter>
             <Routes>
-                <Route exact path="/" element={<Home/>}/>
+                <Route exact path="/" element={<Home />} />
             </Routes>
         </BrowserRouter>
     );

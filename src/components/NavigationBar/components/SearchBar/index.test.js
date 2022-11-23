@@ -7,13 +7,13 @@ describe("SearchBar component", function () {
     it("Test SearchBar component snapshot", async () => {
         render(<SearchBar />)
         expect(screen).toMatchSnapshot();
-      })
+    })
 });
 
-describe("SearchBar component", function() {
+describe("SearchBar component", function () {
     it('Test input placeholder', async () => {
-      render(<SearchBar />);
-      const element = screen.getByPlaceholderText('Search Cocktails');
-      expect(element).toBeInTheDocument();
+        render(<SearchBar />);
+        const element = screen.getByPlaceholderText('Search Cocktails');
+        expect(element).toBeInTheDocument();
     });
-  });
+});

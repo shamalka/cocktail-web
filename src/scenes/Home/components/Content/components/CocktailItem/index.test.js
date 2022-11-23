@@ -59,7 +59,12 @@ describe("CocktailItem component", function () {
             "dateModified": "2016-08-31 19:44:55"
         }
 
-        render(<CocktailItem cocktailItem={testItem} isFavorite={false}/>)
-        expect(screen).toMatchSnapshot();
+        render(<CocktailItem cocktailItem={testItem} isFavorite={false} />)
+        // expect(screen).toMatchSnapshot();
+
+        const cocktailItem = screen.getByTestId('cocktail-item');
+        expect(cocktailItem).toBeInTheDocument();
+        expect(cocktailItem).toHaveTextContent('69 Special');
+        expect(cocktailItem).toHaveTextContent('Ordinary Drink');
     })
 });

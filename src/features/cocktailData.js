@@ -2,7 +2,7 @@ import { createSlice } from "@reduxjs/toolkit";
 
 export const cocktailDataSlice = createSlice({
     name: "cocktailData",
-    initialState: { 
+    initialState: {
         data: [],
         favoriteData: []
     },
