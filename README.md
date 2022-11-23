@@ -1,1 +1,1 @@
-# cocktail-web
+# Cocktail Hub Webapp
