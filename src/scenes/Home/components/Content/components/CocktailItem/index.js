@@ -1,6 +1,6 @@
 import { CloseOutlined, HeartFilled, HeartOutlined } from "@ant-design/icons";
 import { notification } from "antd";
-import React, { useEffect, useState } from "react";
+import React from "react";
 import { useDispatch } from "react-redux";
 import Button from "../../../../../../components/Button";
 import { setFavoriteCocktailData } from "../../../../../../features/cocktailData";

@@ -1,9 +1,9 @@
-import React, { useEffect, useState } from "react";
-import { BrowserRouter, Routes, Route, useNavigate } from "react-router-dom";
+import React, { useEffect } from "react";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Home from "./scenes/Home";
 import 'antd/dist/antd.css';
 import './index.css';
-import { Provider, useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { setFavoriteCocktailData } from "./features/cocktailData";
 
 const App = () => {

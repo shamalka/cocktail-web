@@ -1,7 +1,5 @@
-import axios from "axios";
-import React, { useEffect, useState } from "react";
+import React from "react";
 import { useSelector } from "react-redux";
-import NotFound from "../../../../../../components/NotFound";
 import CocktailItem from "../CocktailItem";
 
 const FavoriteCocktailsList = () => {
@@ -20,7 +18,8 @@ const FavoriteCocktailsList = () => {
                                 return <CocktailItem key={item.idDrink} cocktailItem={item} isFavorite={true} />
                             })
                         }
-                    </div> :
+                    </div> 
+                    :
                     <div className="flex justify-center">
                         <p>No favorite items</p>
                     </div>

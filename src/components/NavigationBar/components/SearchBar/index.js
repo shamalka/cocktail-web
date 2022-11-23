@@ -1,5 +1,5 @@
 import React, { useCallback } from "react";
-import { FacebookOutlined, MenuUnfoldOutlined, GoogleOutlined, SearchOutlined } from "@ant-design/icons";
+import { SearchOutlined } from "@ant-design/icons";
 import Button from "../../../Button";
 import { useDispatch } from "react-redux";
 import { setSearchData } from "../../../../features/searchData";

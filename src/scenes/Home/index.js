@@ -1,6 +1,4 @@
-import React, { useState, useEffect } from "react";
-import { AppstoreAddOutlined, ProfileOutlined, TeamOutlined, UserOutlined } from '@ant-design/icons';
-import { useSelector } from "react-redux";
+import React from "react";
 import NavigationBar from "../../components/NavigationBar";
 import Content from "./components/Content";
 

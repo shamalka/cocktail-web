@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import cocktailIcon from "./../../img/cocktail.png"
 import SearchBar from "./components/SearchBar";
 import { Space } from "antd";

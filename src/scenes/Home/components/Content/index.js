@@ -1,5 +1,5 @@
 import { ReloadOutlined, HeartFilled } from "@ant-design/icons";
-import { Tooltip, Drawer } from "antd";
+import { Tooltip, Drawer, notification } from "antd";
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
@@ -8,10 +8,10 @@ import { setCocktailData } from "../../../../features/cocktailData";
 import CocktailList from "./components/CocktailList";
 import FavoriteCocktailsList from "./components/FavoriteCocktailsList";
 import NotFound from "../../../../components/NotFound";
+import { HOST_URL } from "../../../../utils/constants";
 
 const Content = () => {
 
-    // const [cocktailData, setCocktailData] = useState([]);
     const [isLoading, setIsLoading] = useState(false);
     const [openDrawer, setOpenDrawer] = useState(false);
     const dispatch = useDispatch();
@@ -25,7 +25,6 @@ const Content = () => {
     )
 
     useEffect(() => {
-        console.log('search', searchText)
         if (searchText === '') {
             fetchRandomCocktails()
         } else {
@@ -35,11 +34,15 @@ const Content = () => {
 
     const fetchCocktailData = () => {
         setIsLoading(true)
-        axios.get("https://thecocktaildb.com/api/json/v1/1/search.php?s=" + searchText).then(response => {
+        axios.get( HOST_URL + "/1/search.php?s=" + searchText).then(response => {
             dispatch(setCocktailData(response.data.drinks))
             setIsLoading(false)
         }).catch(error => {
-            console.log(error)
+            notification.error({
+                message: 'Something went wrong',
+                duration: 2,
+                description: "Error occured while fetching Cocktail data",
+            });
             setIsLoading(false)
         })
     }
@@ -48,7 +51,7 @@ const Content = () => {
 
     const fetchRandomCocktails = () => {
         setIsLoading(true)
-        axios.get("https://thecocktaildb.com/api/json/v1/1/random.php").then(response => {
+        axios.get( HOST_URL + "/1/random.php").then(response => {
             cocktailDataTmpArray.push(response.data.drinks[0])
             if (cocktailDataTmpArray.length < 5) {
                 fetchRandomCocktails()
@@ -57,7 +60,11 @@ const Content = () => {
                 dispatch(setCocktailData(cocktailDataTmpArray))
             }
         }).catch(error => {
-            console.log(error)
+            notification.error({
+                message: 'Something went wrong',
+                duration: 2,
+                description: "Error occured while fetching Cocktail data",
+            });
             setIsLoading(false)
         })
     }
@@ -68,7 +75,6 @@ const Content = () => {
     }
 
     const showDrawer = () => {
-        console.log('shooww')
         setOpenDrawer(true);
     };
 
